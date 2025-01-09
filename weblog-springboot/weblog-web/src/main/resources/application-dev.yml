@@ -3,10 +3,10 @@ spring:
     #  指定数据库驱动类
     driver-class-name: com.p6spy.engine.spy.P6SpyDriver
     # 数据库连接信息
-    url: jdbc:p6spy:mysql://127.0.0.1:3306/weblog?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull
-#    url: jdbc:p6spy:mysql://116.62.199.48:3306/weblog?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull
+    #url: jdbc:p6spy:mysql://127.0.0.1:3306/weblog?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull
+    url: jdbc:p6spy:mysql://117.72.111.42:3306/weblog?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull
     username: root
-    password: 123456
+    password: tj123456
     hikari: # 数据库连接池使用 Hikari
       minimum-idle: 5 # 连接池中最小空闲连接数
       maximum-pool-size: 20 # 连接池中允许的最大连接数
@@ -22,13 +22,13 @@ spring:
 # minio (上传图片需要，需配置成自己的地址)
 #=================================================================
 minio:
-  endpoint: http://127.0.0.1:9000
-  accessKey: quanxiaoha
-  secretKey: quanxiaoha
+  endpoint: http://117.72.111.42:9000
+  accessKey: tj123456
+  secretKey: tj123456
   bucketName: weblog
   
 #=================================================================
 # Lucene 全文检索
 #=================================================================
 lucene:
-  indexDir: E:\\java_workspace\\lucene-index # lucene 索引存放的位置
+  indexDir: G:\\java_workspace\\lucene-index # lucene 索引存放的位置

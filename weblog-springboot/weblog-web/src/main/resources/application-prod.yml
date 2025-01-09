@@ -7,7 +7,7 @@ spring:
     # 数据库连接信息
     url: jdbc:mysql://172.17.0.1:3306/weblog?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull
     username: root
-    password: 123456
+    password: tj123456
     hikari: # 数据库连接池使用 Hikari
       minimum-idle: 5 # 连接池中最小空闲连接数
       maximum-pool-size: 20 # 连接池中允许的最大连接数
@@ -26,12 +26,12 @@ logging:
   config: classpath:logback-weblog.xml
 
 #=================================================================
-# minio (上传图片需要，需配置成自己的地址)
+# minio (上传图片需要)
 #=================================================================
 minio:
-  endpoint: http://116.62.199.48:9000
-  accessKey: quanxiaoha
-  secretKey: quanxiaoha
+  endpoint: http://117.72.111.42:9000
+  accessKey: tj123456
+  secretKey: tj123456
   bucketName: weblog
   
 #=================================================================
