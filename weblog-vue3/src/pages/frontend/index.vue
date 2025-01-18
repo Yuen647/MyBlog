@@ -174,7 +174,7 @@
 
             <!-- 右边侧边栏，占用一列 -->
             <aside class="col-span-4 md:col-span-1 animate__animated animate__fadeInUp">
-                <div class="sticky top-[5.5rem] space-y-6">
+                <div class="sticky top-[5.5rem] space-y-6 max-h-[calc(100vh-7rem)] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600 scrollbar-track-transparent hover:scrollbar-thumb-gray-400 dark:hover:scrollbar-thumb-gray-500 pr-2">
                     <!-- 博主信息 -->
                     <UserInfoCard></UserInfoCard>
 
@@ -225,7 +225,7 @@ const articles = ref([])
 // 当前页码
 const current = ref(1)
 // 每页显示的文章数
-const size = ref(10)
+const size = ref(6)
 // 总文章数
 const total = ref(0)
 // 总共多少页

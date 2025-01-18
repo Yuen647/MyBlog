@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="252" height="200" viewBox="0 0 252 200" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <!-- 背景圆圈 -->
+        <circle fill="#F5F7FA" cx="126" cy="100" r="100"/>
+        
+        <!-- 放大镜 -->
+        <g transform="translate(86, 60)">
+            <!-- 放大镜圆环 -->
+            <circle stroke="#9AA5B1" stroke-width="12" cx="40" cy="40" r="35"/>
+            <!-- 放大镜手柄 -->
+            <path d="M65,65 L90,90" stroke="#9AA5B1" stroke-width="12" stroke-linecap="round"/>
+            <!-- 反光效果 -->
+            <path d="M25,25 Q40,40 55,25" stroke="#E4E7EB" stroke-width="4" stroke-linecap="round"/>
+        </g>
+    </g>
+</svg> 

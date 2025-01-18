@@ -20,66 +20,48 @@
                     <div class="grow">
                         <div class="flex items-center gap-5 flex-row">
                             <div class="flex basis-1/3">
-                                <span
-                                    class="inline-flex border-e-0 items-center px-3 text-xs text-gray-900 bg-gray-100 border rounded-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
+                                <span class="inline-flex border-e-0 items-center px-3 text-xs text-gray-900 bg-gray-100 border rounded-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
                                     昵称
                                 </span>
-                                <input @blur="onNicknameInputBlur" v-model="commentStore.userInfo.nickname"
-                                    data-tooltip-target="nickname-tooltip-click" data-tooltip-trigger="click"
-                                    type="text" id="website-admin"
-                                    class="rounded-none rounded-e-lg  border text-gray-900 focus:ring-sky-500 
-focus:border-sky-500 block flex-1 min-w-0 w-full text-xs border-gray-300 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-sky-500 dark:focus:border-sky-500"
-                                    placeholder="必填">
-                                <!-- 昵称 Tooltip -->
-                                <div id="nickname-tooltip-click" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 
-text-xs font-medium text-white bg-gray-900 rounded-md shadow-sm opacity-0 tooltip dark:bg-gray-700">
-                                    输入 QQ 号会自动获取昵称和头像
-                                    <div class="tooltip-arrow" data-popper-arrow></div>
-                                </div>
+                                <input 
+                                    @input="onNicknameInput"
+                                    v-model="commentStore.userInfo.nickname"
+                                    type="text"
+                                    class="rounded-none rounded-e-lg border text-gray-900 focus:ring-sky-500 focus:border-sky-500 block flex-1 min-w-0 w-full text-xs border-gray-300 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-sky-500 dark:focus:border-sky-500"
+                                    placeholder="输入QQ号或昵称">
                             </div>
                             <div class="flex basis-1/3">
-                                <span
-                                    class="inline-flex border-e-0 items-center px-3 text-xs text-gray-900 bg-gray-100 border rounded-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
+                                <span class="inline-flex border-e-0 items-center px-3 text-xs text-gray-900 bg-gray-100 border rounded-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
                                     邮箱
                                 </span>
-                                <input v-model="commentStore.userInfo.mail" data-tooltip-target="mail-tooltip-click"
-                                    data-tooltip-trigger="click" type="text" id="website-admin" class="rounded-none rounded-e-lg  border text-gray-900 focus:ring-sky-500 
-focus:border-sky-500 block flex-1 min-w-0 w-full text-xs border-gray-300 p-2.5  dark:bg-gray-700 dark:border-gray-600 
-dark:placeholder-gray-400 dark:text-white dark:focus:ring-sky-500 dark:focus:border-sky-500" placeholder="必填">
-                                <!-- 邮箱 Tooltip -->
-                                <div id="mail-tooltip-click" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 
-text-xs font-medium text-white bg-gray-900 rounded-md shadow-sm opacity-0 tooltip dark:bg-gray-700">
-                                    收到回复将会发送到您的邮箱
-                                    <div class="tooltip-arrow" data-popper-arrow></div>
-                                </div>
+                                <input 
+                                    v-model="commentStore.userInfo.mail"
+                                    type="text"
+                                    class="rounded-none rounded-e-lg border text-gray-900 focus:ring-sky-500 focus:border-sky-500 block flex-1 min-w-0 w-full text-xs border-gray-300 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-sky-500 dark:focus:border-sky-500"
+                                    placeholder="用于接收回复通知">
                             </div>
                             <div class="flex basis-1/3">
-                                <span
-                                    class="inline-flex border-e-0 items-center px-3 text-xs text-gray-900 bg-gray-100 border rounded-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
+                                <span class="inline-flex border-e-0 items-center px-3 text-xs text-gray-900 bg-gray-100 border rounded-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
                                     网址
                                 </span>
-                                <input v-model="commentStore.userInfo.website"
-                                    data-tooltip-target="website-tooltip-click" data-tooltip-trigger="click" type="text"
-                                    id="website-admin" class="rounded-none rounded-e-lg  border text-gray-900 
-focus:ring-sky-500 focus:border-sky-500 block flex-1 min-w-0 w-full text-xs border-gray-300 p-2.5  dark:bg-gray-700
-dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-sky-500 dark:focus:border-sky-500"
-                                    placeholder="选填">
-                                <!-- 网址 Tooltip -->
-                                <div id="website-tooltip-click" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 
-text-xs font-medium text-white bg-gray-900 rounded-md shadow-sm opacity-0 tooltip dark:bg-gray-700">
-                                    可通过点击头像访问你的网站 (非必填)
-                                    <div class="tooltip-arrow" data-popper-arrow></div>
-                                </div>
-
+                                <input 
+                                    v-model="commentStore.userInfo.website"
+                                    @input="onWebsiteInput"
+                                    type="text"
+                                    class="rounded-none rounded-e-lg border text-gray-900 focus:ring-sky-500 focus:border-sky-500 block flex-1 min-w-0 w-full text-xs border-gray-300 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-sky-500 dark:focus:border-sky-500"
+                                    placeholder="个人网站（选填）">
                             </div>
                         </div>
-                        <div
-                            class="w-full mb-4 mt-4 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
+                        <div class="w-full mb-4 mt-4 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
                             <div class="px-4 py-2 bg-white rounded-t-lg dark:bg-gray-800">
-                                <label for="comment" class="sr-only">Your comment</label>
-                                <textarea id="comment" rows="4" v-model="commentForm.content"
+                                <textarea 
+                                    id="comment" 
+                                    rows="4" 
+                                    v-model="commentForm.content"
+                                    @input="onCommentInput"
                                     class="w-full px-0 text-sm text-gray-900 bg-white border-0 dark:bg-gray-800 focus:ring-0 dark:text-white dark:placeholder-gray-400"
-                                    placeholder="发表一个友善的评论吧..." required></textarea>
+                                    placeholder="发表一个友善的评论吧..." 
+                                    required></textarea>
                             </div>
                             <div class="flex items-center justify-between px-3 py-2 border-t dark:border-gray-600">
                                 <div @click="onPublishCommentClick" class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white 
@@ -104,8 +86,10 @@ bg-sky-600 rounded-lg focus:ring-4 focus:ring-sky-200 dark:focus:ring-sky-900 ho
                                         <div class="p-2">
                                             <div class="grid grid-cols-6 gap-2">
                                                 <div v-for="(emoji, index) in emojis" :key="index"
-                                                    class="text-2xl hover:cursor-pointer" @click="addEmoji(emoji)">{{
-            emoji }}
+                                                    class="text-2xl hover:cursor-pointer"
+                                                    @click="addEmoji(emoji)">
+                                                    {{
+                                                    emoji }}
                                                 </div>
                                             </div>
                                         </div>
@@ -410,37 +394,127 @@ initFormCommentUserInfo()
 
 // 邮箱正则
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+// 防抖函数
+function debounce(fn, delay) {
+    let timer = null
+    return function (...args) {
+        if (timer) clearTimeout(timer)
+        timer = setTimeout(() => {
+            fn.apply(this, args)
+        }, delay)
+    }
+}
+
+// 智能获取QQ信息
+const smartGetQQInfo = debounce(async (value) => {
+    if (!value) return
+
+    // 提取QQ号（支持QQ号和QQ邮箱格式）
+    let qqNumber = value.trim()
+    if (qqNumber.toLowerCase().endsWith('@qq.com')) {
+        qqNumber = qqNumber.toLowerCase().split('@')[0]
+    }
+
+    // 检查是否是合法的QQ号
+    if (!/^\d+$/.test(qqNumber)) return
+    if (qqNumber.length < 5 || qqNumber.length > 11) return
+
+    try {
+        const res = await getUserInfoByQQ(qqNumber)
+        if (!res.success) return
+
+        // 更新用户信息
+        commentStore.userInfo.avatar = res.data.avatar
+        commentStore.userInfo.nickname = res.data.nickname
+        commentStore.userInfo.mail = res.data.mail || (qqNumber + '@qq.com')
+        showMessage('QQ信息获取成功', 'success')
+    } catch (err) {
+        console.error('获取QQ信息出错：', err)
+    }
+}, 500)
+
+// 监听昵称输入
+const onNicknameInput = () => {
+    let value = commentStore.userInfo.nickname
+    if (!value) return
+
+    // 如果输入的是数字，自动添加@qq.com
+    if (/^\d+$/.test(value) && value.length >= 5 && value.length <= 11) {
+        if (!commentStore.userInfo.mail) {
+            commentStore.userInfo.mail = value + '@qq.com'
+        }
+        // 智能获取QQ信息
+        smartGetQQInfo(value)
+    }
+    // 如果是QQ邮箱格式
+    else if (value.toLowerCase().endsWith('@qq.com')) {
+        const qqNumber = value.toLowerCase().split('@')[0]
+        if (/^\d+$/.test(qqNumber) && qqNumber.length >= 5 && qqNumber.length <= 11) {
+            // 智能获取QQ信息
+            smartGetQQInfo(value)
+        }
+    }
+}
+
+// 评论内容输入监听
+const onCommentInput = () => {
+    if (!commentStore.userInfo.nickname && commentForm.content) {
+        showMessage('请先填写昵称或QQ号', 'info')
+    }
+}
+
+// 网址输入优化
+const onWebsiteInput = debounce(() => {
+    let website = commentStore.userInfo.website
+    if (!website) return
+
+    // 自动添加http://前缀
+    if (!website.startsWith('http://') && !website.startsWith('https://')) {
+        commentStore.userInfo.website = 'http://' + website
+    }
+}, 800)
+
+// 发送评论前的完整性检查
+const validateCommentForm = () => {
+    if (!commentStore.userInfo.nickname) {
+        showMessage('请填写昵称或QQ号', 'warning')
+        return false
+    }
+    if (!commentStore.userInfo.mail || !emailRegex.test(commentStore.userInfo.mail)) {
+        showMessage('请填写正确的邮箱地址', 'warning')
+        return false
+    }
+    if (!commentForm.content || commentForm.content.trim().length === 0) {
+        showMessage('评论内容不能为空', 'warning')
+        return false
+    }
+    return true
+}
+
 // 一级评论发布点击事件
 const onPublishCommentClick = () => {
     initFormCommentUserInfo()
-    // 校验
-    if (commentForm.nickname.length === 0) {
-        showMessage('请填写 QQ 号或昵称', 'warning')
-        return
-    }
-    if (commentForm.mail.length === 0 || !emailRegex.test(commentForm.mail)) {
-        showMessage('邮箱格式不正确', 'warning')
-        return
-    }
-    if (commentForm.content.length === 0) {
-        showMessage('请填写评论内容', 'warning')
+    
+    // 表单验证
+    if (!validateCommentForm()) {
         return
     }
 
+    // 显示发送中状态
+    showMessage('评论发送中...', 'info')
+    
     publishComment(commentForm).then(res => {
         if (!res.success) {
-            // 获取服务端返回的错误消息
-            let message = res.message
-            // 提示错误消息
-            showMessage(message, 'error')
+            showMessage(res.message || '发送失败', 'error')
             return
         }
 
-        showMessage('评论发布成功')
-        // 将表单对象中的 content 评论内容置空
+        showMessage('评论发布成功', 'success')
         commentForm.content = ''
-        // 重新渲染表单列表
         initComments()
+    }).catch(err => {
+        showMessage('评论发送失败，请稍后重试', 'error')
+        console.error('发送评论出错：', err)
     })
 }
 
@@ -449,32 +523,19 @@ const addEmoji = (emoji) => {
     commentForm.content = commentForm.content + emoji
 }
 
-// 昵称输入框 blur 事件
-const onNicknameInputBlur = () => {
-    let nickname = commentStore.userInfo.nickname
-    // 校验昵称是否是纯数字
-    if (!checkIfPureNumber(nickname)) {
-        return
-    }
-
-    // 若是，请求后端接口，根据 QQ 号获取用户信息
-    getUserInfoByQQ(nickname).then(res => {
-        if (!res.success) {
-            // 提示错误消息
-            showMessage('获取 QQ 信息失败', 'error')
-            return
-        }
-
-        commentStore.userInfo.avatar = res.data.avatar
-        commentStore.userInfo.nickname = res.data.nickname
-        commentStore.userInfo.mail = res.data.mail
-    })
-}
-
-// QQ 号校验，是否是纯数字 
+// QQ 号校验，支持纯数字和QQ邮箱格式
 function checkIfPureNumber(text) {
-    const trimmedValue = text.trim();
-    return /^\d+$/.test(trimmedValue);
+    if (!text) return false
+    const trimmedValue = text.trim()
+    
+    // 如果是QQ邮箱格式，提取QQ号
+    if (trimmedValue.toLowerCase().endsWith('@qq.com')) {
+        const qqNumber = trimmedValue.toLowerCase().split('@')[0]
+        return /^\d+$/.test(qqNumber)
+    }
+    
+    // 检查是否为纯数字
+    return /^\d+$/.test(trimmedValue)
 }
 
 // 评论数组

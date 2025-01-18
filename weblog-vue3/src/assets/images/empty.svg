@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="252" height="200" viewBox="0 0 252 200" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <!-- 背景圆圈 -->
+        <circle fill="#F5F7FA" cx="126" cy="100" r="100"/>
+        
+        <!-- 空盒子 -->
+        <path d="M76,80 L176,80 L186,100 L66,100 L76,80 Z" fill="#E4E7EB"/>
+        <path d="M66,100 L186,100 L176,160 L76,160 L66,100 Z" fill="#CBD2D9"/>
+        
+        <!-- 问号 -->
+        <path d="M116,110 C116,105 120,100 126,100 C132,100 136,105 136,110 C136,115 132,118 126,120 L126,130" 
+              stroke="#9AA5B1" stroke-width="8" stroke-linecap="round"/>
+        <circle fill="#9AA5B1" cx="126" cy="140" r="4"/>
+    </g>
+</svg> 
